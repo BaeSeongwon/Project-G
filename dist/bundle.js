@@ -75,7 +75,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__configure_config_js__ = __webpack_require__(4);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__configure_config_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__configure_config_js__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__dashboard_dashboard_controller_js__ = __webpack_require__(13);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__dashboard_dashboard_controller_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__dashboard_dashboard_controller_js__);
 const angular = __webpack_require__(1);
 __webpack_require__(3);
 __webpack_require__(2);
@@ -84,7 +83,7 @@ __webpack_require__(2);
 
 
 
-angular.module('app', ['ui.router', 'ngMaterial']).config(__WEBPACK_IMPORTED_MODULE_0__configure_config_js___default.a).controller('DashBoardController', __WEBPACK_IMPORTED_MODULE_1__dashboard_dashboard_controller_js___default.a);
+angular.module('app', ['ui.router', 'ngMaterial']).config(__WEBPACK_IMPORTED_MODULE_0__configure_config_js___default.a).controller('DashBoardController', __WEBPACK_IMPORTED_MODULE_1__dashboard_dashboard_controller_js__["a" /* default */]);
 
 /***/ }),
 /* 1 */
@@ -38822,16 +38821,17 @@ bindJQuery();publishExternalAPI(angular);angular.module("ngLocale",[],["$provide
 
 /***/ }),
 /* 13 */
-/***/ (function(module, exports) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 class DashBoardController {
   constructor() {
     let DashCtrl = this;
     DashCtrl.name = '대쉬보드';
   }
 }
+/* harmony export (immutable) */ __webpack_exports__["a"] = DashBoardController;
 
-module.exports = DashBoardController;
 
 /***/ })
 /******/ ]);
