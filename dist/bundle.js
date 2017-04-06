@@ -74,7 +74,7 @@
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__configure_config_js__ = __webpack_require__(4);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__configure_config_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__configure_config_js__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__dashboard_dashboard_module_js__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__dashboard_dashboard_controller_js__ = __webpack_require__(13);
 const angular = __webpack_require__(1);
 __webpack_require__(3);
 __webpack_require__(2);
@@ -83,7 +83,7 @@ __webpack_require__(2);
 
 
 
-angular.module('app', ['ui.router', 'ngMaterial', 'dashboard']).config(__WEBPACK_IMPORTED_MODULE_0__configure_config_js___default.a);
+angular.module('app', ['ui.router', 'ngMaterial']).config(__WEBPACK_IMPORTED_MODULE_0__configure_config_js___default.a).controller('DashBoardController', __WEBPACK_IMPORTED_MODULE_1__dashboard_dashboard_controller_js__["a" /* default */]);
 
 /***/ }),
 /* 1 */
@@ -4932,67 +4932,31 @@ if (typeof module !== "undefined" && typeof exports !== "undefined" && module.ex
 
 class Configure {
   constructor($stateProvider, $urlRouterProvider) {
-    let htmlPath = 'src/public/html/dashboard.html';
+    let htmlPath = 'src/public/html';
+
     let dashboard = {
       url: '/admin',
-      templateUrl: htmlPath,
+      templateUrl: htmlPath + '/dashboard.html',
       controller: 'DashBoardController',
       controllerAs: 'DashCtrl'
     };
 
-    $stateProvider.state('DashBoard', dashboard);
+    let login = {
+      url: '/login',
+      templateUrl: htmlPath + '/login.html',
+      controller: 'LoginController',
+      controllerAs: 'LoginCtrl'
+    };
+
+    $stateProvider.state('DashBoard', dashboard).state('Login', login);
   }
 }
 
 module.exports = Configure;
 
 /***/ }),
-/* 5 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(module) {/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__dashboard_controller_js__ = __webpack_require__(13);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__dashboard_controller_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__dashboard_controller_js__);
-const angular = __webpack_require__(1);
-
-
-console.log(__WEBPACK_IMPORTED_MODULE_0__dashboard_controller_js___default.a);
-let dashboard = angular.module('app.dashboard', []);
-dashboard.controller(__WEBPACK_IMPORTED_MODULE_0__dashboard_controller_js___default.a);
-
-module.exports = dashboard;
-/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(6)(module)))
-
-/***/ }),
-/* 6 */
-/***/ (function(module, exports) {
-
-module.exports = function (originalModule) {
-	if (!originalModule.webpackPolyfill) {
-		var module = Object.create(originalModule);
-		// module.parent = undefined by default
-		if (!module.children) module.children = [];
-		Object.defineProperty(module, "loaded", {
-			enumerable: true,
-			get: function () {
-				return module.l;
-			}
-		});
-		Object.defineProperty(module, "id", {
-			enumerable: true,
-			get: function () {
-				return module.i;
-			}
-		});
-		Object.defineProperty(module, "exports", {
-			enumerable: true
-		});
-		module.webpackPolyfill = 1;
-	}
-	return module;
-};
-
-/***/ }),
+/* 5 */,
+/* 6 */,
 /* 7 */
 /***/ (function(module, exports) {
 
@@ -38857,16 +38821,17 @@ bindJQuery();publishExternalAPI(angular);angular.module("ngLocale",[],["$provide
 
 /***/ }),
 /* 13 */
-/***/ (function(module, exports) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 class DashBoardController {
   constructor() {
     let DashCtrl = this;
     DashCtrl.name = '대쉬보드';
   }
 }
+/* harmony export (immutable) */ __webpack_exports__["a"] = DashBoardController;
 
-module.exports = DashBoardController;
 
 /***/ })
 /******/ ]);
