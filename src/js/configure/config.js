@@ -1,14 +1,24 @@
 class Configure {
   constructor($stateProvider,$urlRouterProvider){
-    let htmlPath = 'src/public/html/dashboard.html';
+    let htmlPath = 'src/public/html';
+
     let dashboard = {
       url: '/admin',
-      templateUrl: htmlPath,
+      templateUrl: htmlPath + '/dashboard.html',
       controller: 'DashBoardController',
       controllerAs: 'DashCtrl'
     }
 
-    $stateProvider.state('DashBoard',dashboard);
+    let login = {
+      url: '/login',
+      templateUrl: htmlPath + '/login.html',
+      controller: 'LoginController',
+      controllerAs: 'LoginCtrl'
+    }
+
+    $stateProvider
+      .state('DashBoard',dashboard)
+      .state('Login',login);
   }
 }
 
