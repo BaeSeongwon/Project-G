@@ -8,7 +8,10 @@ import DashBoardController from './dashboard/dashboard.controller.js';
 import LoginController from './login/login.controller.js';
 
 /* 미들웨어 CSS 호출 */
+import AngularMaterial from '../../node_modules/angular-material/angular-material.min.css';
+import IndexStyle from '../public/css/index.css';
 import DashBoardStyle from '../public/css/dashboard.css';
+import LoginStyle from '../public/css/login.css';
 
 angular.module('app',['ui.router','ngMaterial'])
         .config(configure)

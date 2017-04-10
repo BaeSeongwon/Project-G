@@ -4,7 +4,7 @@ class Configure {
 
     let dashboard = {
       url: '/admin',
-      templateUrl: htmlPath + '/dashboard.html',
+      templateUrl: htmlPath + '/dashboard.v2.html',
       controller: 'DashBoardController',
       controllerAs: 'DashCtrl'
     }
