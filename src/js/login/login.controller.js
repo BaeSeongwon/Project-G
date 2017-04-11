@@ -1,6 +1,21 @@
 export default class LoginController {
-  constructor(){
+  constructor($mdDialog){
     let LoginCtrl = this;
-    LoginCtrl.name = '로그인 페이지'
+    let Dialog = $mdDialog;
+  }
+
+  doLogin(){
+
+  }
+
+  openRegisterForm($ev){
+    Dialog.show({
+      controller: RegisterController,
+      templateUrl: '../../public/html/register.html',
+      parent: angular.element(document.body),
+      targetEvent: ev,
+      clickOutsideToClose: false,
+      fullscreen: false
+    })
   }
 }

@@ -1,7 +1,6 @@
 class Configure {
   constructor($stateProvider,$urlRouterProvider){
-    let htmlPath = 'src/public/html';
-
+    let htmlPath = '/src/public/html';
     let dashboard = {
       url: '/admin',
       templateUrl: htmlPath + '/dashboard.html',
@@ -17,8 +16,8 @@ class Configure {
     }
 
     $stateProvider
-      .state('DashBoard',dashboard)
-      .state('Login',login);
+      .state('dashBoard',dashboard)
+      .state('login',login);
   }
 }
 
