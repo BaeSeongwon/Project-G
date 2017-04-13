@@ -1,7 +1,10 @@
+import RegisterController from '../register/register.controller.js';
+let Dialog;
+
 export default class LoginController {
   constructor($mdDialog){
     let LoginCtrl = this;
-    let Dialog = $mdDialog;
+    Dialog = $mdDialog;
   }
 
   doLogin(){
@@ -11,9 +14,9 @@ export default class LoginController {
   openRegisterForm($ev){
     Dialog.show({
       controller: RegisterController,
-      templateUrl: '../../public/html/register.html',
+      templateUrl: '/register.html',
       parent: angular.element(document.body),
-      targetEvent: ev,
+      targetEvent: $ev,
       clickOutsideToClose: false,
       fullscreen: false
     })
