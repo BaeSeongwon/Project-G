@@ -1,0 +1,23 @@
+.register_container{
+  min-width: 800px;
+  min-height: 440px;
+}
+
+.register_cancel{
+  position: absolute;
+  right: 20px;
+}
+
+.register_container > form {
+  padding: 0px 16px 0px 16px;
+}
+
+.register_container > form > article > section {
+  padding: 0px 10px 0px 10px;
+}
+
+.register_check {
+  width: 50px;
+  margin-top: 27px;
+  margin-bottom: 27px;
+}

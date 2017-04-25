@@ -1,0 +1,71 @@
+<md-dialog aria-label="회원가입" class="register_container">
+  <md-toolbar>
+    <h2 class="md-toolbar-tools">
+      <span>회원가입</span>
+      <md-button class="md-icon-button register_cancel" ng-click="cancel()">
+        <md-icon aria-label="Close dialog"><span>x</span></md-icon>
+      </md-button>
+    </h2>
+  </md-toolbar>
+  <form name="registerForm" ng-submit="doRegister()">
+    <article layout="row" layout-xs="column">
+      <section flex layout="column">
+        <div layout="row">
+          <md-input-container flex="80">
+            <label>아이디</label>
+            <input required name="clientId" ng-model="clientId">
+            <div ng-messages="registerForm.clientId.$error">
+              <div ng-message="required">필수 입력 항목입니다.</div>
+            </div>
+          </md-input-container>
+          <md-button class="md-accent register_check">Check</md-button>
+        </div>
+        <md-input-container>
+          <label>비밀번호</label>
+          <input type="password" required name="clientPwd" ng-model="clientPwd">
+          <div ng-messages="registerForm.clientPwd.$error">
+            <div ng-message="required">필수 입력 항목입니다.</div>
+          </div>
+        </md-input-container>
+        <md-input-container>
+          <label>이름</label>
+          <input required name="clientName" ng-model="clientName">
+          <div ng-messages="registerForm.clientName.$error">
+            <div ng-message="required">필수 입력 항목입니다.</div>
+          </div>
+        </md-input-container>
+        <md-input-container>
+          <label>학교</label>
+          <input required name="clientSchool" ng-model="clientSchool">
+          <div ng-messages="registerForm.clientSchool.$error">
+            <div ng-message="required">필수 입력 항목입니다.</div>
+          </div>
+        </md-input-container>
+      </section>
+      <section flex layout="column">
+        <md-input-container>
+          <label>전화번호</label>
+          <input required name="clientTel" ng-model="clientTel">
+          <div ng-messages="registerForm.clientTel.$error">
+            <div ng-message="required">필수 입력 항목입니다.</div>
+          </div>
+        </md-input-container>
+        <md-input-container>
+          <label>이메일</label>
+          <input required name="clientEmail" ng-model="clientEmail">
+          <div ng-messages="registerForm.clientEmail.$error">
+            <div ng-message="required">필수 입력 항목입니다.</div>
+          </div>
+        </md-input-container>
+        <md-input-container>
+          <label>사업단 및 학부</label>
+          <input required name="clientSubname" ng-model="clientSubname">
+          <div ng-messages="registerForm.clientSubname.$error">
+            <div ng-message="required">필수 입력 항목입니다.</div>
+          </div>
+        </md-input-container>
+        <md-button class="md-raised md-primary" type="submit">회원가입</md-button>
+      </section>
+    </article>
+  </form>
+</md-dialog>
