@@ -2,14 +2,12 @@ import RegisterController from '../register/register.controller.js';
 let Dialog;
 let LoginCtrl;
 let Login;
-let stateParam;
 
 export default class LoginController {
-  constructor($mdDialog,LoginService,$stateParam){
+  constructor($mdDialog,LoginService){
     LoginCtrl = this;
     Dialog = $mdDialog;
     Login = LoginService;
-    stateParam = $stateParam;
   }
 
   doLogin(){

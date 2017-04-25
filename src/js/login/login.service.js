@@ -1,9 +1,11 @@
 let http;
+let state;
 let baseUrl = 'http://localhost/project_G/src/php';
 
 export default class LoginService{
-  constructor($http){
+  constructor($http,$state){
     http = $http;
+    state = $state;
   }
 
   sendUser(wrap) {
@@ -14,7 +16,9 @@ export default class LoginService{
     }
     let url = baseUrl + '/routing/login.php';
     return http.post(url,wrap,config).then((data)=>{
-      console.log(data);
+      if(data.data != 'wrong'){
+        state.go('dashBoard');
+      }
     })
   }
 }

@@ -1,11 +1,9 @@
 let http;
-let stateParam;
 let baseUrl = 'http://localhost/project_G/src/php';
 
 export default class RegisterService{
-  constructor($http,$stateParam){
+  constructor($http){
     http = $http;
-    stateParam = $stateParam;
   }
 
   sendUser(wrap) {
@@ -16,10 +14,7 @@ export default class RegisterService{
     }
     let url = baseUrl + '/routing/register.php';
     return http.post(url,wrap,config).then((data)=>{
-      if(data != 'wrong'){
 
-      }
-
-    })
+    });
   }
 }
