@@ -6,7 +6,9 @@ require('angular-material');
 import configure from './configure/config.js';
 import DashBoardController from './dashboard/dashboard.controller.js';
 import LoginController from './login/login.controller.js';
-// import RegisterController from './register/register.controller.js';
+import LoginService from './login/login.service.js';
+import RegisterController from './register/register.controller.js';
+import RegisterService from './register/register.service.js';
 
 /* 미들웨어 CSS 호출 */
 import AngularMaterial from '../../node_modules/angular-material/angular-material.min.css';
@@ -18,4 +20,7 @@ import RegisterStyle from '../public/css/register.css';
 angular.module('app',['ui.router','ngMaterial'])
         .config(configure)
         .controller('DashBoardController',DashBoardController)
-        .controller('LoginController',LoginController);
+        .controller('LoginController',LoginController)
+        .service('LoginService',LoginService)
+        .controller('RegisterController',RegisterController)
+        .service('RegisterService',RegisterService);

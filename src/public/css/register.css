@@ -8,11 +8,11 @@
   right: 20px;
 }
 
-.register_container > article {
+.register_container > form {
   padding: 0px 16px 0px 16px;
 }
 
-.register_container > article > section {
+.register_container > form > article > section {
   padding: 0px 10px 0px 10px;
 }
 
