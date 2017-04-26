@@ -1,1 +1,51 @@
-<h1>{{DashCtrl.name}}</h1>
+<section layout="row" layout-xs="column" class="main_container">
+  <section flex="30" class="main_menueContainer">
+    <nav>
+      <div class="main_menueHeader">
+        <span>비교과 관제 시스템</span>
+      </div>
+      <div class="main_menueBody">
+        <div class="main_menueBody_header">
+          DISCOVER
+        </div>
+        <div>
+          <md-list>
+            <md-list-item class="md-1-line main_list_item" ng-repeat="item in DashCtrl.menue" ng-click="DashCtrl.link(item.url)">
+              <i class="{{item.icon}} main_i"></i>
+              <span ui-sref="{{item.url}}">{{item.name}}</span>
+            </md-list-item>
+          </md-list>
+        </div>
+      </div>
+    </nav>
+  </section>
+  <section flex="70" layout="column" class="main_bodyContainer">
+    <div class="main_nav" layout="row">
+      <div class="" layout="row">
+        <div class="main_newsfeed">
+          #Newsfeed
+        </div>
+        <div class="main_newsfeed_list">
+
+        </div>
+      </div>
+      <div class="main_userinfo_container" layout="row">
+        <div>
+          <img src="{{DashCtrl.imgUrl}}">
+        </div>
+        <div>
+          Hello,
+          <span>배성원 <i class="fa fa-angle-down"></i></span>
+        </div>
+      </div>
+      <div class="main_submenu_container">
+        <ul>
+          <li class="fa fa-bell-o"></li>
+        </ul>
+      </div>
+    </div>
+    <div class="main_body">
+      <ui-view></ui-view>
+    </div>
+  </section>
+</section>
