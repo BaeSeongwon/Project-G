@@ -1,3 +1,30 @@
 <section class="sa_container">
   <h4>사이트 등록하기</h4>
+  <hr>
+  <article layout="row">
+    <section class="sa_first_section" flex="50">
+      <div layout="row">
+        <div flex="70">
+          <md-input-container class="md-block">
+            <label>사이트 이름</label>
+            <input ng-model="user.firstName">
+          </md-input-container>
+        </div>
+        <div flex="30">
+          <md-input-container>
+            <label>구분</label>
+            <md-select ng-model="SiteAppendCtrl.">
+              <md-option ng-disabled="$index === 1">사업단</md-option>
+              <md-option ng-disabled="$index === 1">학부</md-option>
+              <md-option ng-disabled="$index === 1">부처</md-option>
+          </md-select>
+          </md-input-container>
+        </div>
+      </div>
+
+    </section>
+    <section class="sa_second_section" flex="50">
+
+    </section>
+  </article>
 </section>

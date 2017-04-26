@@ -1,3 +1,19 @@
 .sa_container{
   padding: 15px;
 }
+
+.sa_container>:first-child{
+  margin: 0px;
+}
+
+hr{
+  border: solid #fafafa 0.5px;
+}
+
+.sa_first_section{
+  padding: 0px 5px;
+}
+
+.sa_second_section{
+  padding: 0px 5px;
+}

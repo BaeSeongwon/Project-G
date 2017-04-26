@@ -41837,7 +41837,7 @@ exports = module.exports = __webpack_require__(0)(undefined);
 
 
 // module
-exports.push([module.i, ".sa_container{\r\n  padding: 15px;\r\n}\r\n", ""]);
+exports.push([module.i, ".sa_container{\r\n  padding: 15px;\r\n}\r\n\r\n.sa_container>:first-child{\r\n  margin: 0px;\r\n}\r\n\r\nhr{\r\n  border: solid #fafafa 0.5px;\r\n}\r\n\r\n.sa_first_section{\r\n  padding: 0px 5px;\r\n}\r\n\r\n.sa_second_section{\r\n  padding: 0px 5px;\r\n}\r\n", ""]);
 
 // exports
 
