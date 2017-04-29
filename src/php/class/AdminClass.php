@@ -23,24 +23,33 @@ class AdminClass implements UserInterface{
       $this->admin_tel = $param['admin_tel'];
       $this->admin_email = $param['admin_email'];
       $this->admin_subname = $param['admin_subname'];
+    }else if(count($param) == 1){
+      $this->admin_id = $param['admin_id'];
     }
   }
 
   public function insertMethod(){
-    $this->conn = mysqli_connect("localhost","root","root","project_g");
-    if($this->conn->connect_errno){
-      // DB연동 실패
-      return false;
-    }else{
-      // DB 연동 성공
-      $query = "INSERT INTO user_admin (admin_id,admin_pwd,admin_name,admin_school,admin_tel,admin_email,admin_subname) VALUES('$this->admin_id','$this->admin_pwd','$this->admin_name','$this->admin_school','$this->admin_tel','$this->admin_email','$this->admin_subname')";
+    try{
+      $db = new PDO('mysql:host=localhost;dbname=project_g;charset=utf8','root','root');
+      $stmt = $db->prepare("INSERT INTO user_admin (admin_id,admin_pwd,admin_name,admin_school,admin_tel,admin_email,admin_subname) VALUES(?,?,?,?,?,?,?)");
+      $stmt->execute([$this->admin_id,$this->admin_pwd,$this->admin_name,$this->admin_school,$this->admin_tel,$this->admin_email,$this->admin_subname]);
+      $db = null;
+      return "success";
+    }catch(Exception $e){
+      return $e->getMessage();
+    }
+  }
 
-      if($this->conn->query($query)){
-        mysqli_close($this->conn);
-        return true;
-      }else{
-        return false;
-      }
+  public function loginCheckMethod(){
+    try{
+      $db = new PDO('mysql:host=localhost;project_g;charset=utf8','root','root');
+      $stmt = $db->prepare("SELECT *FROM user_admin WHERE admin_id VALUES(?)");
+      $stmt = $db->execute([$this->admin_id]);
+      $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+      $db = null;
+      return $result;
+    }catch(Exception $e){
+      return $e->getMessage();
     }
   }
 
