@@ -473,6 +473,14 @@ class RegisterController {
       };
       RegisterService.sendUser(wrap);
     };
+    $scope.idCheck = () => {
+      let wrap = { admin_id: $scope.clientId };
+      if (RegisterService.loginCheck(wrap) == 'false') {
+        // alert("사용가능한 아이디입니다.");
+      } else {
+          // alert("이미 존재하는 아이디입니다.");
+        }
+    };
   }
 }
 /* harmony export (immutable) */ __webpack_exports__["a"] = RegisterController;
@@ -5509,6 +5517,18 @@ class RegisterService {
     };
     let url = baseUrl + '/routing/register.php';
     return http.post(url, wrap, config).then(data => {});
+  }
+
+  loginCheck(wrap) {
+    let config = {
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
+      }
+    };
+    let url = baseUrl + '/routing/loginCheck.php';
+    return http.post(url, wrap, config).then(data => {
+      console.log(data);
+    });
   }
 }
 /* harmony export (immutable) */ __webpack_exports__["a"] = RegisterService;

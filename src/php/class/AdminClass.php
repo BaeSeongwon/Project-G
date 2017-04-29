@@ -43,9 +43,11 @@ class AdminClass implements UserInterface{
   public function loginCheckMethod(){
     try{
       $db = new PDO('mysql:host=localhost;project_g;charset=utf8','root','root');
-      $stmt = $db->prepare("SELECT *FROM user_admin WHERE admin_id VALUES(?)");
-      $stmt = $db->execute([$this->admin_id]);
-      $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+      $stmt = $db->prepare("SELECT *FROM user_admin WHERE admin_id = ?");
+      $stmt->execute([$this->admin_id]);
+      while($row=$stmt->fetch(PDO::FETCH_OBJ)) {
+          return $row->admin_id;
+      }
       $db = null;
       return $result;
     }catch(Exception $e){

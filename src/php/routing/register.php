@@ -11,6 +11,6 @@
   if($register->insertMethod() == "success"){
     echo true;
   }else{
-    echo flase;
+    echo false;
   }
 ?>

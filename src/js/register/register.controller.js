@@ -16,5 +16,13 @@ export default class RegisterController{
       }
       RegisterService.sendUser(wrap);
     }
+    $scope.idCheck = ()=>{
+      let wrap = {admin_id : $scope.clientId};
+      if(RegisterService.loginCheck(wrap) == 'false'){
+        // alert("사용가능한 아이디입니다.");
+      }else{
+        // alert("이미 존재하는 아이디입니다.");
+      }
+    }
   }
 }
