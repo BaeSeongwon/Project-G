@@ -6,7 +6,12 @@ class Configure {
       url: '/admin',
       templateUrl: htmlPath + '/dashboard.html',
       controller: 'DashBoardController',
-      controllerAs: 'DashCtrl'
+      controllerAs: 'DashCtrl',
+      resolve: {
+        auth : (AuthService)=>{
+          AuthService.auth();
+        }
+      }
     }
 
     let login = {
@@ -20,7 +25,12 @@ class Configure {
       url: '/siteAppend',
       templateUrl: htmlPath + '/siteAppend.html',
       controller: "SiteAppendController",
-      controllerAs: 'SiteAppendCtrl'
+      controllerAs: 'SiteAppendCtrl',
+      resolve: {
+        auth : (AuthService)=>{
+          AuthService.auth();
+        }
+      }
     }
 
     let siteWatch = {
@@ -38,8 +48,8 @@ class Configure {
     }
 
     $stateProvider
-      .state('dashBoard',dashboard)
       .state('login',login)
+      .state('dashBoard',dashboard)
       .state('dashBoard.siteAppend',siteAppend);
   }
 }

@@ -32,9 +32,13 @@ class AdminClass implements UserInterface{
     try{
       $db = new PDO('mysql:host=localhost;dbname=project_g;charset=utf8','root','root');
       $stmt = $db->prepare("INSERT INTO user_admin (admin_id,admin_pwd,admin_name,admin_school,admin_tel,admin_email,admin_subname) VALUES(?,?,?,?,?,?,?)");
-      $stmt->execute([$this->admin_id,$this->admin_pwd,$this->admin_name,$this->admin_school,$this->admin_tel,$this->admin_email,$this->admin_subname]);
-      $db = null;
-      return "success";
+      if($stmt->execute([$this->admin_id,$this->admin_pwd,$this->admin_name,$this->admin_school,$this->admin_tel,$this->admin_email,$this->admin_subname])){
+        $db = null;
+        return "success";
+      }else{
+        $db = null;
+        return "fail";
+      };
     }catch(Exception $e){
       return $e->getMessage();
     }
@@ -42,20 +46,37 @@ class AdminClass implements UserInterface{
 
   public function loginCheckMethod(){
     try{
-      $db = new PDO('mysql:host=localhost;project_g;charset=utf8','root','root');
-      $stmt = $db->prepare("SELECT *FROM user_admin WHERE admin_id = ?");
+      $db = new PDO('mysql:host=localhost;dbname=project_g;charset=utf8','root','root');
+      $stmt = $db->prepare("SELECT * FROM user_admin WHERE admin_id = ?");
       $stmt->execute([$this->admin_id]);
-      while($row=$stmt->fetch(PDO::FETCH_OBJ)) {
-          return $row->admin_id;
+
+      while($row = $stmt->fetch()){
+        if($row['admin_id']){
+          $db = null;
+          return true;
+        }else{
+          $db = null;
+          return false;
+        }
       }
-      $db = null;
-      return $result;
     }catch(Exception $e){
       return $e->getMessage();
     }
   }
 
   public function readMethod(){
+    try{
+      $db = new PDO('mysql:host=localhost;dbname=project_g;charset=utf8','root','root');
+      $stmt = $db->prepare("SELECT * FROM user_admin WHERE admin_id = ?");
+      $stmt->execute([$this->admin_id]);
+
+      while($row = $stmt->fetch()){
+
+      }
+      return true;
+    }catch(Exception $e){
+      return $e->getMessage();
+    }
     $this->conn = mysqli_connect("localhost","root","root","project_g");
     if($this->conn->connect_errno){
       // DB연동 실패

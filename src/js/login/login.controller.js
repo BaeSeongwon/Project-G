@@ -2,12 +2,14 @@ import RegisterController from '../register/register.controller.js';
 let Dialog;
 let LoginCtrl;
 let Login;
+let state;
 
 export default class LoginController {
-  constructor($mdDialog,LoginService){
+  constructor($mdDialog,LoginService,$state){
     LoginCtrl = this;
     Dialog = $mdDialog;
     Login = LoginService;
+    state = $state;
   }
 
   doLogin(){
@@ -15,7 +17,11 @@ export default class LoginController {
       admin_id : LoginCtrl.id,
       admin_pwd : LoginCtrl.password
     }
-    Login.sendUser(wrap);
+    Login.sendUser(wrap).then((data)=>{
+      if(data == true){
+        state.go('dashBoard');
+      }
+    });
   }
 
   openRegisterForm($ev){
