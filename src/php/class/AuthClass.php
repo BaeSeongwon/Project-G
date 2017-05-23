@@ -22,5 +22,9 @@
     function updateMethod(){
 
     }
+
+    function loginCheckMethod(){
+      return $this->userinterface->loginCheckMethod();
+    }
   }
 ?>

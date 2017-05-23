@@ -23,28 +23,60 @@ class AdminClass implements UserInterface{
       $this->admin_tel = $param['admin_tel'];
       $this->admin_email = $param['admin_email'];
       $this->admin_subname = $param['admin_subname'];
+    }else if(count($param) == 1){
+      $this->admin_id = $param['admin_id'];
     }
   }
 
   public function insertMethod(){
-    $this->conn = mysqli_connect("localhost","root","root","project_g");
-    if($this->conn->connect_errno){
-      // DB연동 실패
-      return false;
-    }else{
-      // DB 연동 성공
-      $query = "INSERT INTO user_admin (admin_id,admin_pwd,admin_name,admin_school,admin_tel,admin_email,admin_subname) VALUES('$this->admin_id','$this->admin_pwd','$this->admin_name','$this->admin_school','$this->admin_tel','$this->admin_email','$this->admin_subname')";
-
-      if($this->conn->query($query)){
-        mysqli_close($this->conn);
-        return true;
+    try{
+      $db = new PDO('mysql:host=localhost;dbname=project_g;charset=utf8','root','root');
+      $stmt = $db->prepare("INSERT INTO user_admin (admin_id,admin_pwd,admin_name,admin_school,admin_tel,admin_email,admin_subname) VALUES(?,?,?,?,?,?,?)");
+      if($stmt->execute([$this->admin_id,$this->admin_pwd,$this->admin_name,$this->admin_school,$this->admin_tel,$this->admin_email,$this->admin_subname])){
+        $db = null;
+        return "success";
       }else{
-        return false;
+        $db = null;
+        return "fail";
+      };
+    }catch(Exception $e){
+      return $e->getMessage();
+    }
+  }
+
+  public function loginCheckMethod(){
+    try{
+      $db = new PDO('mysql:host=localhost;dbname=project_g;charset=utf8','root','root');
+      $stmt = $db->prepare("SELECT * FROM user_admin WHERE admin_id = ?");
+      $stmt->execute([$this->admin_id]);
+
+      while($row = $stmt->fetch()){
+        if($row['admin_id']){
+          $db = null;
+          return true;
+        }else{
+          $db = null;
+          return false;
+        }
       }
+    }catch(Exception $e){
+      return $e->getMessage();
     }
   }
 
   public function readMethod(){
+    try{
+      $db = new PDO('mysql:host=localhost;dbname=project_g;charset=utf8','root','root');
+      $stmt = $db->prepare("SELECT * FROM user_admin WHERE admin_id = ?");
+      $stmt->execute([$this->admin_id]);
+
+      while($row = $stmt->fetch()){
+
+      }
+      return true;
+    }catch(Exception $e){
+      return $e->getMessage();
+    }
     $this->conn = mysqli_connect("localhost","root","root","project_g");
     if($this->conn->connect_errno){
       // DB연동 실패
