@@ -7,6 +7,7 @@ require('angular-cookies');
 import configure from './configure/config.js';
 import DashBoardController from './dashboard/dashboard.controller.js';
 import DashBoardMenueService from './dashboard/dashboard.menue.service.js';
+import GetUserService from './dashboard/dashboard.getuser.service.js';
 import LoginController from './login/login.controller.js';
 import LoginService from './login/login.service.js';
 import RegisterController from './register/register.controller.js';
@@ -29,6 +30,7 @@ angular.module('app',['ui.router','ngMaterial','ngCookies'])
         .service('AuthService',AuthService)
         .controller('DashBoardController',DashBoardController)
         .service('DashBoardMenueService',DashBoardMenueService)
+        .service('GetUserService',GetUserService)
         .controller('LoginController',LoginController)
         .service('LoginService',LoginService)
         .controller('RegisterController',RegisterController)
