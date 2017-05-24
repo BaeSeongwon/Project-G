@@ -14,7 +14,8 @@ export default class GetUserService{
             'Content-Type' : 'application/x-www-form-urlencoded; charset=UTF-8'
           }
         }
-        let url = baseUrl + '/routing/getUser.php';
+        let url = baseUrl + '/routing/getUser.php?auth=' + auth;
+        console.log(url);
         http.get(url).then((data)=>{
           if(data){
             resolve(true);

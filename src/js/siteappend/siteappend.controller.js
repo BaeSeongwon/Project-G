@@ -1,10 +1,6 @@
 let SiteAppendCtrl;
-<<<<<<< HEAD
-export default class SiteAppendController {
-  constructor(){
-    SiteAppendCtrl = this;
-=======
 let compile;
+
 export default class SiteAppendController {
   constructor($compile){
     SiteAppendCtrl = this;
@@ -34,6 +30,5 @@ export default class SiteAppendController {
 
   inspectDom(event){
     console.log(event);
->>>>>>> feature/로그인_Ver_1.0
   }
 }
