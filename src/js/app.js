@@ -2,6 +2,7 @@ const angular = require('angular');
 require('angular-ui-router');
 require('angular-material');
 require('angular-cookies');
+require('bootstrap');
 
 /* 미들웨어 호출 */
 import configure from './configure/config.js';
@@ -18,6 +19,7 @@ import AuthService from './auth/auth.js';
 
 /* 미들웨어 CSS 호출 */
 import AngularMaterial from '../../node_modules/angular-material/angular-material.min.css';
+import Bootstrap from '../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import FontAwesome from '../../node_modules/font-awesome/css/font-awesome.css';
 import IndexStyle from '../public/css/index.css';
 import DashBoardStyle from '../public/css/dashboard.css';

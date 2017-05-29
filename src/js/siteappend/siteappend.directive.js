@@ -1,6 +1,5 @@
-const $ = require('jquery');
 function link(scope, element, attrs){
-  
+
 }
 
 module.exports = ()=>{

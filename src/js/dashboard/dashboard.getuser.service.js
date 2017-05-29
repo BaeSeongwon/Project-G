@@ -3,7 +3,7 @@ let baseUrl = "http://localhost/project_G/src/php";
 
 export default class GetUserService{
   constructor($http){
-
+    http = $http;
   }
 
   getUser(auth){
