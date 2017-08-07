@@ -1,5 +1,6 @@
 .sa_container{
   padding: 15px;
+  min-height: 580px;
 }
 
 .sa_container>:first-child{
@@ -41,4 +42,30 @@ hr{
 .sa_page_logo{
   width: 100%;
   text-align: center;
+}
+
+.sa_table_container{
+  padding-top: 30px;
+  width: 800px;
+  margin: 0px auto;
+}
+
+.sa_table_container_not{
+  padding-top: 30px;
+  text-align: center;
+}
+
+.sa_table_div_model{
+  width: 200px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.sa_page_save_container{
+  margin-top: 100px;
+}
+
+.sa_page_save_btn{
+  width: 100%;
 }

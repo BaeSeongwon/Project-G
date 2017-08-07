@@ -1,0 +1,33 @@
+<section class="wc_container">
+  <h4>크롤링</h4>
+  <hr>
+  <article class="">
+    <section class="wc_watch_container">
+      <p class="wc_watch">{{Hour}}:{{Minute}}:{{Second}} <span class="wc_ampm">{{amPm}}</span></p>
+    </section>
+    <section>
+      <table class="table">
+        <thead class="thead-inverse">
+          <tr>
+            <th>#</th>
+            <th>사이트 명</th>
+            <th>구분</th>
+            <th>로고</th>
+            <th>크롤링</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="book in BookModels track by $index">
+            <th scope="row">{{$index + 1}}</th>
+            <td class="wc_book_name" ng-click="WatchCtrl.getCode(book.name,$event)">{{book.name}}</td>
+            <td>{{book.type}}</td>
+            <td><img src={{book.logo}} alt=""></td>
+            <td>
+              <md-button class="md-primary wc_crow_btn" ng-click="WatchCtrl.startCrowling(book.url,book.name)">크롤링</md-button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+  </article>
+</section>

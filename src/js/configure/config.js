@@ -1,7 +1,7 @@
 class Configure {
-  constructor($stateProvider,$urlRouterProvider){
+  constructor($stateProvider,$urlRouterProvider,$locationProvider){
+    $locationProvider.html5Mode(true);
     let htmlPath = '/src/public/html';
-
     let dashboard = {
       url: '/admin',
       templateUrl: htmlPath + '/dashboard.html',
@@ -33,11 +33,28 @@ class Configure {
       }
     }
 
-    let siteWatch = {
-      url: '/siteWatch',
-      templateUrl: htmlPath + '/siteWatch.html',
-      controller: "siteWatchController",
-      controllerAs: 'siteWatchChtrl'
+    let booked = {
+      url: '/booked',
+      templateUrl: htmlPath + '/booked.html',
+      controller: "BookedController",
+      controllerAs: 'BookedCtrl',
+      resolve: {
+        auth : (AuthService)=>{
+          AuthService.auth();
+        }
+      }
+    }
+
+    let watch = {
+      url: '/watch',
+      templateUrl: htmlPath + '/watch.html',
+      controller: "WatchController",
+      controllerAs: "WatchCtrl",
+      resolve: {
+        auth: (AuthService)=>{
+          AuthService.auth();
+        }
+      }
     }
 
     let storage = {
@@ -50,7 +67,9 @@ class Configure {
     $stateProvider
       .state('login',login)
       .state('dashBoard',dashboard)
-      .state('dashBoard.siteAppend',siteAppend);
+      .state('dashBoard.siteAppend',siteAppend)
+      .state('dashBoard.booked',booked)
+      .state('dashBoard.watch',watch);
   }
 }
 

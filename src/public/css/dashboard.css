@@ -41,7 +41,7 @@
   border-radius: 10px;
   background-color: white;
   margin-bottom: 30px;
-  height: 50px;
+  min-height: 50px;
 }
 
 .main_bodyContainer{
@@ -174,4 +174,12 @@ a{
 
 .main_error_0{
   color: green;
+}
+
+.main_model_container{
+  background-color: white;
+  padding: 10px 10px 10px 10px;
+  border-radius: 10px;
+  margin-top: 30px;
+  min-height: 300px;
 }

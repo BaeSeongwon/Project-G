@@ -1,12 +1,22 @@
 let DashCtrl;
 let state;
+let siteModel;
 export default class DashBoardController {
-  constructor(DashBoardMenueService,GetUserService,$state,$cookies){
+  constructor(DashBoardMenueService,$state,$cookies,$scope){
     DashCtrl = this;
     DashCtrl.menue = DashBoardMenueService.getMenue();
-    DashCtrl.UserInfo = GetUserService.getUser($cookies.getObject('auth'));
+    DashCtrl.UserInfo = $cookies.getObject('auth');
+
     state = $state;
-    DashCtrl.imgUrl = "http://localhost/project_G/src/public/img/user.png";
+    DashCtrl.imgUrl = "src/public/img/user.png";
+
+    $scope.$on('urlModel',function(event,arg){
+      if(arg.message == 'true'){
+        $scope.urlModel = 'true';
+      }else{
+        $scope.urlModel = 'false';
+      }
+    })
   }
 
   link(url){

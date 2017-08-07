@@ -1,0 +1,8 @@
+.cd_container{
+  min-width: 300px;
+  min-height: 400px;
+}
+
+.cd_code_container{
+  padding: 15px;
+}

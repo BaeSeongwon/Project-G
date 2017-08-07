@@ -9,7 +9,7 @@ export default class AuthService{
 
   auth(){
     if(!cookies.getObject('auth')){
-      location.href = "#!/login";
+      location.href = "/login";
     }
   }
 }

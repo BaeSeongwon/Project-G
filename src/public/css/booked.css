@@ -1,0 +1,29 @@
+.bk_container{
+  min-height: 580px;
+  padding: 15px;
+}
+
+.bk_item_container{
+
+}
+
+.bk_item_container>div{
+  width: 200px;
+  margin: 0px auto;
+}
+
+
+.bk_item_container>div:hover{
+  width: 200px;
+  margin: 0px auto;
+  border: 1px solid black;
+  cursor: pointer;
+}
+
+.bk_item_container>div>img{
+  width: 100%;
+}
+
+.bk_img_thumb{
+  height: 31px;
+}

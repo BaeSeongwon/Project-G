@@ -15,9 +15,9 @@ export default class RegisterController{
         admin_subname : $scope.clientSubname
       }
       RegisterService.sendUser(wrap).then((data)=>{
-        console.log(data);
         if(data == true){
           alert("회원가입 되었습니다.");
+          Dialog.cancel();
         }else{
           alert("회원가입이 실패 하였습니다.");
         }

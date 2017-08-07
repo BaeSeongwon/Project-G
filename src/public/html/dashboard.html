@@ -18,6 +18,9 @@
         </div>
       </div>
     </nav>
+    <div ng-switch="" on="urlModel">
+      <section url-model ng-switch-when="true"></section>
+    </div>
   </section>
   <section flex="70" layout="column" class="main_bodyContainer">
     <div class="main_nav" layout="row">
@@ -40,7 +43,7 @@
         </div>
         <div>
           Hello,
-          <span>배성원 <i class="fa fa-angle-down"></i></span>
+          <span>{{DashCtrl.UserInfo.name}} <i class="fa fa-angle-down"></i></span>
         </div>
       </div>
       <div class="main_submenu_container">

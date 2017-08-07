@@ -1,0 +1,27 @@
+.wc_container{
+  padding: 15px;
+  min-height: 580px;
+}
+
+.wc_watch{
+  font-size: 90px;
+  color: #666666;
+}
+
+.wc_ampm{
+  font-size: 45px;
+}
+
+.wc_watch_container{
+  margin-bottom: 80px;
+}
+
+.wc_crow_btn{
+  margin: 0px;
+  min-height: 25px;
+  height: 30px;
+}
+
+.wc_book_name{
+  cursor: pointer;
+}

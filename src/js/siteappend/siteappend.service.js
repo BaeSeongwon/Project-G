@@ -1,31 +1,28 @@
 let http;
-let state;
 let ip = 'http://localhost:3000';
-let cookies;
+let httpParam;
 
-export default class LoginService{
-  constructor($http,$state,$cookies){
+export default class SiteAppendService{
+  constructor($http,$httpParamSerializerJQLike){
     http = $http;
-    state = $state;
-    cookies = $cookies;
+    httpParam = $httpParamSerializerJQLike;
   }
 
-  sendUser(wrap) {
+  sendSite(wrap){
     return new Promise((resolve, reject)=>{
       let config = {
         headers : {
             'Content-Type' : 'application/x-www-form-urlencoded; charset=UTF-8'
         }
       }
-      let url = ip + '/login/do';
-      http.post(url,$.param(wrap),config).then((data)=>{
+      let url = ip + '/site/add';
+      http.post(url,httpParam(wrap),config).then((data)=>{
         if(data){
-          cookies.putObject('auth',data.data);
           resolve(true);
         }else{
           reject('error');
         }
       })
-    })
+    });
   }
 }

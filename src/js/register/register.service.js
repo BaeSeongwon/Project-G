@@ -1,5 +1,5 @@
 let http;
-let baseUrl = 'http://localhost/project_G/src/php';
+let ip = "http://localhost:3000";
 
 export default class RegisterService{
   constructor($http){
@@ -7,15 +7,15 @@ export default class RegisterService{
   }
 
   sendUser(wrap) {
+    console.log(wrap);
     return new Promise((resolve,reject)=>{
       let config = {
         headers : {
             'Content-Type' : 'application/x-www-form-urlencoded; charset=UTF-8'
         }
       }
-      let url = baseUrl + '/routing/test.php';
-      http.post(url,wrap,config).then((data)=>{
-        console.log(data);
+      let url = ip + '/register/req';
+      http.post(url,$.param(wrap),config).then((data)=>{
         if(data.data == true){
           resolve(true);
         }else if(data.data == false){
@@ -34,14 +34,12 @@ export default class RegisterService{
           'Content-Type' : 'application/x-www-form-urlencoded; charset=UTF-8'
         }
       }
-      let url = baseUrl + '/routing/loginCheck.php';
-      http.post(url,wrap,config).then((data)=>{
-        if(data.data == true){
+      let url = ip + '/register/check';
+      http.post(url,$.param(wrap),config).then((data)=>{
+        if(data.data){
           resolve(true);
-        }else if(data.data == false){
-          resolve(false);
         }else{
-          reject('error');
+          resolve(false);
         }
       });
     });
